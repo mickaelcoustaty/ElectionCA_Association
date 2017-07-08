@@ -1,0 +1,4 @@
+AuthUserFile /work/www/idcn/gilles/admin/.htpasswd
+AuthName "Connexion admin"
+AuthType Basic
+Require valid-user

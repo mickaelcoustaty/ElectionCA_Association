@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<title>generation numero vote</title>
+</head>
+<body style="width:90%;margin:auto;">
+<h1 class="jumbotron" style="text-align: center;">Math en Jeans - Vote pour l'election du Conseil d'Administration</h1>
+
+<form method="post" action="page.php" enctype="multipart/form-data">
+     <label for="mon_fichier">Fichier (format CSV) :</label><br />
+     <input type="file" name="csvFile" id="mon_fichier" /><br /><br />
+     <label for="mon_fichier">Mot de passe :</label><br />
+     <input type="password" name="cle" /><br /><br />
+     <input type="submit" name="submit" value="Envoyer" />
+</form>
+
+<br/><br/><br/>
+<p style="text-align: center;"><a href="index.php"><button type="button" class="btn">Retour à l'administration</button></a></p>
+</body>
+</html>
