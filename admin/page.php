@@ -12,7 +12,7 @@
 <?php
 	try
 	{
-		$bdd = new PDO('mysql:host=localhost;dbname=idcndb;charset=utf8', 'idcn', 'idcnPWD');
+		include '../bddAccess.php';
 
 		// On vide la table car on va la reremplir avec les nouveaux ID
 		$bdd->exec("TRUNCATE TABLE MeJ_Account");
@@ -40,10 +40,9 @@
 				    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE)
 				    {
 				        $num = count($data);
-				        //echo "<p> $num champs à la ligne $row: <br /></p>\n";
 				        $row++;
 				        $password = hash("sha256", $data[0].$_POST['cle']);
-				        // On ajoute une entrée dans la table jeux_video
+				        // On ajoute une entrée dans la table MeJ_Account
 						$bdd->exec("INSERT INTO `MeJ_Account` (`id`, `nom`, `code`, `vote`) VALUES (NULL, '".$data[0]."', '".substr($password, 0, 8)."', ". 0 .")");
 					}
 				}

@@ -13,7 +13,8 @@
 <?php
       try
       {
-            $bdd = new PDO('mysql:host=localhost;dbname=idcndb;charset=utf8', 'idcn', 'idcnPWD');
+			include '../bddAccess.php';
+			
             $nbVotantsQuery = $bdd->query("SELECT COUNT(`nom`) FROM `MeJ_Account`");
             $nbVotants = $nbVotantsQuery->fetch();
             $nbVoteExprimesQuery = $bdd->query("SELECT COUNT(`vote`) FROM `MeJ_Account` WHERE `vote` > 0 ");

@@ -13,7 +13,8 @@
 <?php
 	try
 	{
-		$bdd = new PDO('mysql:host=localhost;dbname=idcndb;charset=utf8', 'idcn', 'idcnPWD');
+		include '../bddAccess.php';
+		
 		echo '<table class="table table-striped">';
 		// On affiche
 		$Candidats = $bdd->query("SELECT nom FROM `MeJ_Candidats`");

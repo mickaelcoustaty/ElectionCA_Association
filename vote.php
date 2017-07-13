@@ -13,7 +13,7 @@
 <?php
 	try
 	{
-		$bdd = new PDO('mysql:host=localhost;dbname=idcndb;charset=utf8', 'idcn', 'idcnPWD');
+		include 'bddAccess.php';
 
 		// Si le formulaire est rempli, on enregistre le vote
 		if (!empty($_POST))

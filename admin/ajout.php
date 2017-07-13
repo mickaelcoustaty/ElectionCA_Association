@@ -17,7 +17,7 @@
 <?php
 	try
 	{
-		$bdd = new PDO('mysql:host=localhost;dbname=idcndb;charset=utf8', 'idcn', 'idcnPWD');
+		include '../bddAccess.php';
 
 		// On vide la table car on va la reremplir avec les nouveaux ID
 		$reponse = $bdd->query("SELECT nbCandidats FROM `MeJ_admin`");
