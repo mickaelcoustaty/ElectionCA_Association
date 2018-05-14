@@ -42,11 +42,49 @@
 				        $num = count($data);
 				        $row++;
 				        $password = hash("sha256", $data[0].$_POST['cle']);
+						
+						$loginToAdd = $data[0];
+						$passwordToAdd = substr($password, 0, 8);
+						$emailToAdd = $data[1];
 				        // On ajoute une entrée dans la table MeJ_Account
-						$bdd->exec("INSERT INTO `MeJ_Account` (`id`, `nom`, `code`, `vote`) VALUES (NULL, '".$data[0]."', '".substr($password, 0, 8)."', ". 0 .")");
+						$bdd->exec("INSERT INTO `MeJ_Account` (`id`, `nom`, `code`, `mail`, `vote`) VALUES (NULL, '".$loginToAdd."', '".$passwordToAdd."', '".$emailToAdd."', ". 0 .")");
+						
+						//// Pour l'envoi du mail
+						
+						// Pour
+						$to = $emailToAdd;
+						// Sujet
+						$subject = 'Votre compte pour le vote au CA de l\'association';
+						// message
+						$message = '
+						<html>
+						 <head>
+						  <title>Association Math en Jeans</title>
+						  <meta charset="UTF-8">
+						 </head>
+						 <body>
+						  <p>Voici vos informations de connexion pour le vote de 2018 !</p>
+						  <table>
+							<tr>
+								<th>Identifiant</th><th>Mot de passe</th>
+							</tr>
+							<tr>
+								<td>'.$loginToAdd.'</td><td>'.$passwordToAdd.'</td>
+							</tr>
+						  </table>
+						 </body>
+						</html>
+						';
+
+						$headers = 'From: Gilles@email.com' . "\r\n" . 'Reply-To: Gilles@email.com' . "\r\n" . 'MIME-Version: 1.0' . "\r\n" . 'Content-type: text/html; charset=iso-8859-1';
+						 
+						$retourMail = mail($to, $subject, $message, $headers);
+						
+						echo "<br>mail envoyé à ".$emailToAdd;
 					}
 				}
 			}
+			echo "<br><br>";
 			// Et on les affiche
 			$reponse = $bdd->query("SELECT * FROM `MeJ_Account`");
 			foreach  ($reponse as $row)

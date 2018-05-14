@@ -30,6 +30,10 @@
       <div class="col-md-4">
             <a href="generation.html"><h3>Generer les codes</h3></a>
       </div>
+	  
+	  <div class="col-md-4">
+            <a href="visualisationCompte.php"><h3>Visualiser les comptes</h3></a>
+      </div>
 
       <div class="col-md-4">
             <a href="resultat.php"><h3>Resultats</h3></a>
